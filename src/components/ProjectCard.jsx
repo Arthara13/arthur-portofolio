@@ -1,5 +1,6 @@
 import { ArrowUpRight, ExternalLink, ScanLine } from 'lucide-react'
 import ProjectArtwork from './ProjectArtwork'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function ProjectCard({ project, index, onOpen }) {
   return (
@@ -11,7 +12,7 @@ export default function ProjectCard({ project, index, onOpen }) {
         aria-label={`View details ${project.title}, ${project.category}`}
       >
         <div className="project-visual">
-          {project.image ? <img src={project.image} alt={`Preview ${project.title}`} loading="lazy" decoding="async" /> : <ProjectArtwork theme={project.theme} />}
+          {project.image ? <img src={assetUrl(project.image)} alt={`Preview ${project.title}`} loading="lazy" decoding="async" /> : <ProjectArtwork theme={project.theme} />}
           <div className="project-visual-top"><span className="project-index">// {project.id}</span><ScanLine size={19}/></div>
           <div className="project-tech-reveal">
             <span className="tech-title">{project.techLabel || 'TECHNOLOGIES USED'}</span>

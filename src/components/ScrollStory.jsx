@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowDownRight, ArrowUpRight, Download, MessageCircle } from 'lucide-react'
 import { site } from '../data/site'
+import { assetUrl } from '../utils/assetUrl'
 import './scroll-story.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -78,12 +79,12 @@ export default function ScrollStory() {
               <p className="story-intro">Turning complex information into meaningful insights, predictive solutions, and practical digital experiences.</p>
               <div className="story-actions">
                 <a href="#projects" className="story-primary">EXPLORE MY WORK <ArrowUpRight size={17}/></a>
-                <a href={site.cvPath} target="_blank" rel="noopener noreferrer" className="story-textbutton">VIEW CV <Download size={16}/></a>
+                <a href={assetUrl(site.cvPath)} target="_blank" rel="noopener noreferrer" className="story-textbutton">VIEW CV <Download size={16}/></a>
               </div>
             </div>
             <div className="story-portrait story-photo story-portrait-front">
 
-              <img src="/arthur-formal-cutout.png" alt="Arthur Fikry Swara in formal attire" fetchPriority="high" />
+              <img src={assetUrl("/arthur-formal-cutout.png")} alt="Arthur Fikry Swara in formal attire" fetchPriority="high" />
               <span className="story-photo-tag">01 — STATISTICS & TECHNOLOGY</span>
             </div>
           </div>
@@ -92,7 +93,7 @@ export default function ScrollStory() {
 
         <article className="story-face story-second" id="leadership" aria-label="Leadership and impact">
           <div className="story-grid" aria-hidden="true" />
-          <div className="story-leadership-scene story-photo" aria-hidden="true"><img src="/arthur-leadership-original.webp" alt="" /></div>
+          <div className="story-leadership-scene story-photo" aria-hidden="true"><img src={assetUrl("/arthur-leadership-original.webp")} alt="" /></div>
           <div className="story-inner wrap">
             <div className="story-copy story-bigtype story-leadership-copy">
               <p className="story-eyebrow"><span className="story-tinyline"/> 02 / THE PERSON BEHIND THE DATA</p>

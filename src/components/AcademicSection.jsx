@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, ArrowRight, BookOpen, ChevronLeft, ChevronRight, GraduationCap, Layers3, X } from 'lucide-react'
 import { academic, academicCategories } from '../data/academic'
 import RevealTitle from './RevealTitle'
+import { assetUrl } from '../utils/assetUrl'
 
 function AcademicModal({ item, onClose }) {
   const closeRef = useRef(null)
@@ -36,7 +37,7 @@ function AcademicModal({ item, onClose }) {
         <div className="academic-dialog-inner">
           <div className="academic-dialog-visual">
             <div className="academic-dialog-grid" />
-            <div className="academic-document-preview"><img src={item.images[imageIndex]} alt={`Document preview ${item.title}`} /></div>
+            <div className="academic-document-preview"><img src={assetUrl(item.images[imageIndex])} alt={`Document preview ${item.title}`} /></div>
             {item.images.length > 1 && <div className="academic-image-nav">
               <button type="button" onClick={() => setImageIndex(i => (i - 1 + item.images.length) % item.images.length)} aria-label="Previous preview"><ChevronLeft size={19}/></button>
               <span>{imageIndex + 1} / {item.images.length}</span>
@@ -88,7 +89,7 @@ export default function AcademicSection() {
             <button type="button" className="academic-card-main" onClick={() => setSelected(item)} aria-label={`Open case study ${item.title}`}>
               <div className="academic-card-photo">
                 <div className="academic-photo-grid" aria-hidden="true" />
-                <div className="academic-paper"><img src={item.images[0]} loading="lazy" decoding="async" alt={`Report excerpt ${item.title}`} /></div>
+                <div className="academic-paper"><img src={assetUrl(item.images[0])} loading="lazy" decoding="async" alt={`Report excerpt ${item.title}`} /></div>
                 <div className="academic-photo-vignette" />
                 <div className="academic-card-top"><span>{item.id}</span><span>{item.team === 'Group' ? 'GROUP PROJECT' : 'INDIVIDUAL WORK'}</span></div>
                 <div className="academic-card-hover"><span>METHODS & TOOLS</span><div>{item.tools.map(t => <b key={t}>{t}</b>)}</div></div>

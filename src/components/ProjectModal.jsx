@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, ChevronLeft, ChevronRight, X } from 'lucide-react'
 import ProjectArtwork from './ProjectArtwork'
+import { assetUrl } from '../utils/assetUrl'
 
 export default function ProjectModal({ project, onClose }) {
   const closeRef = useRef(null)
@@ -37,7 +38,7 @@ export default function ProjectModal({ project, onClose }) {
           <button type="button" ref={closeRef} className="modal-close" onClick={onClose} aria-label="Close project details"><X size={19}/></button>
         </div>
         <div className="modal-art">
-          {current ? <img src={current.image} alt={current.caption} /> : <ProjectArtwork theme={project.theme} />}
+          {current ? <img src={assetUrl(current.image)} alt={current.caption} /> : <ProjectArtwork theme={project.theme} />}
           {gallery.length > 1 && <div className="modal-gallery-controls">
             <button type="button" onClick={() => setImageIndex(i => (i - 1 + gallery.length) % gallery.length)} aria-label="Previous image"><ChevronLeft size={21}/></button>
             <span>{String(imageIndex + 1).padStart(2, '0')} / {String(gallery.length).padStart(2, '0')}</span>
@@ -47,7 +48,7 @@ export default function ProjectModal({ project, onClose }) {
         {current && <div className="gallery-caption"><span>PROJECT VISUAL / {String(imageIndex + 1).padStart(2, '0')}</span>{current.caption}</div>}
         {gallery.length > 1 && <div className="gallery-thumbnails" aria-label="Project image gallery">
           {gallery.map((item, i) => <button key={item.image} type="button" className={i === imageIndex ? 'active' : ''} onClick={() => setImageIndex(i)} aria-label={`View image ${i + 1}: ${item.caption}`} aria-pressed={i === imageIndex}>
-            <img src={item.image} alt="" loading="lazy" />
+            <img src={assetUrl(item.image)} alt="" loading="lazy" />
             <span>{String(i + 1).padStart(2, '0')}</span>
           </button>)}
         </div>}

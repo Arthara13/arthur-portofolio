@@ -1,0 +1,14 @@
+GITHUB PAGES PATCH - ARTHUR PORTFOLIO
+
+Repository: Arthara13/arthur-portofolio (perhatikan ejaan: PORTOFOLIO)
+
+1. Github > repository > Settings > Pages > Source: GitHub Actions.
+2. Ekstrak ZIP ini. Buka folder GitHub-Pages-Fix-Arthur hasil ekstraksi.
+3. Copy ISI folder ini (.github, src, vite.config.js, index.html) ke folder repository lokal arthur-portofolio.
+   Pilih Replace files in destination untuk file dengan nama yang sama.
+   Jangan hapus folder public dan proyek lainnya.
+4. GitHub Desktop > Changes > Summary: Configure GitHub Pages deployment > Commit to main > Push origin.
+5. Buka GitHub > Actions dan cek hasil workflow Deploy Arthur Portfolio to GitHub Pages.
+6. Jika sukses, buka https://arthara13.github.io/arthur-portofolio/
+
+Catatan: file ini mengubah base Vite + path aset agar foto, grafik, dan PDF dari folder public tampil saat website dihosting dari subpath /arthur-portofolio/.
